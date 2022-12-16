@@ -13,11 +13,56 @@
                     @method('PUT')
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="description" class="block font-medium text-sm text-gray-700">Description</label>
-                            <input type="text" name="description" id="description" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('description', $book->description) }}" />
-                            @error('description')
+                            <label for="title" class="block font-medium text-sm text-gray-700">Title</label>
+                            <input type="text" name="title" id="title" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('title', $book->title) }}" />
+                            @error('title')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="author" class="block font-medium text-sm text-gray-700">Author</label>
+                            <input type="text" name="author" id="author" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('author', $book->author) }}" />
+                            @error('author')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="publication_year" class="block font-medium text-sm text-gray-700">Publication Year</label>
+                            <input type="text" name="publication_year" id="publication_year" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('publication_year', $book->publication_year) }}" />
+                            @error('publication_year')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="book_page" class="block font-medium text-sm text-gray-700">Book Page</label>
+                            <input type="text" name="book_page" id="book_page" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('book_page', $book->book_page) }}" />
+                            @error('book_page')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="publisher" class="block font-medium text-sm text-gray-700">Publisher</label>
+                            <input type="text" name="publisher" id="publisher" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('publisher', $book->publisher) }}" />
+                            @error('publisher')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="isbn" class="block font-medium text-sm text-gray-700">ISBN</label>
+                            <input type="text" name="isbn" id="isbn" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('isbn', $book->isbn) }}" />
+                            @error('isbn')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
