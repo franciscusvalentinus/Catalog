@@ -16,6 +16,20 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('books.index') }}" :active="request()->routeIs('books.index')">
+                        {{ __('Books') }}
+                    </x-jet-nav-link>
+                </div>
+
+                @can('user_access')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('loans.index') }}" :active="request()->routeIs('loans.index')">
+                            {{ __('Loans') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
