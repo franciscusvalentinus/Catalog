@@ -14,4 +14,14 @@ class Loan extends Model
         'return_date',
         'status',
     ];
+
+    public function books()
+    {
+        return $this->belongsTo(Book::class, 'book_id', 'id');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

@@ -17,4 +17,9 @@ class Book extends Model
         'publisher',
         'isbn',
     ];
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'book_id', 'id');
+    }
 }
