@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
-use App\Models\Role;
+use App\Http\Requests\StoreLoanRequest;
+use App\Http\Requests\UpdateLoanRequest;
+use App\Models\Book;
+use App\Models\Loan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -16,60 +17,64 @@ class LoanController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $users = User::with('roles')->get();
+        $loans = Loan::all();
 
-        return view('users.index', compact('users'));
+        return view('loans.index', compact('loans'));
     }
 
     public function create()
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $roles = Role::pluck('title', 'id');
+        $users = User::pluck('email', 'id');
+        $books = Book::pluck('title', 'id');
 
-        return view('users.create', compact('roles'));
+        return view('loans.create', compact('users', 'books'));
     }
 
-    public function store(StoreUserRequest $request)
+    public function store(StoreLoanRequest $request)
     {
-        $user = User::create($request->validated());
-        $user->roles()->sync($request->input('roles', []));
+        $loan = Loan::create($request->validated());
+        $loan->users()->sync($request->input('users', []));
+        $loan->books()->sync($request->input('books', []));
 
-        return redirect()->route('users.index');
+        return redirect()->route('loans.index');
     }
 
-    public function show(User $user)
-    {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('users.show', compact('user'));
-    }
-
-    public function edit(User $user)
+    public function show(Loan $loan)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $roles = Role::pluck('title', 'id');
-
-        $user->load('roles');
-
-        return view('users.edit', compact('user', 'roles'));
+        return view('loans.show', compact('loan'));
     }
 
-    public function update(UpdateUserRequest $request, User $user)
-    {
-        $user->update($request->validated());
-        $user->roles()->sync($request->input('roles', []));
-
-        return redirect()->route('users.index');
-    }
-
-    public function destroy(User $user)
+    public function edit(Loan $loan)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $user->delete();
+        $users = User::pluck('email', 'id');
+        $books = Book::pluck('title', 'id');
 
-        return redirect()->route('users.index');
+        $loan->load('users', 'books');
+
+        return view('loans.edit', compact('loan', 'users', 'books'));
+    }
+
+    public function update(UpdateLoanRequest $request, Loan $loan)
+    {
+        $loan->update($request->validated());
+        $loan->users()->sync($request->input('users', []));
+        $loan->books()->sync($request->input('books', []));
+
+        return redirect()->route('loans.index');
+    }
+
+    public function destroy(Loan $loan)
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $loan->delete();
+
+        return redirect()->route('loans.index');
     }
 }
