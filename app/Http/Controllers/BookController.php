@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTaskRequest;
-use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Requests\StoreBookRequest;
+use App\Http\Requests\UpdateBookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -27,7 +27,7 @@ class BookController extends Controller
         return view('books.create');
     }
 
-    public function store(StoreTaskRequest $request)
+    public function store(StoreBookRequest $request)
     {
         Book::create($request->validated());
 
@@ -48,11 +48,11 @@ class BookController extends Controller
         return view('books.edit', compact('book'));
     }
 
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(UpdateBookRequest $request, Book $book)
     {
-        $task->update($request->validated());
+        $book->update($request->validated());
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('books.index');
     }
 
     public function destroy(Book $book)
