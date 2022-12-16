@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Users List
+            Loans List
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('users.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add User</a>
+                <a href="{{ route('loans.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Loan</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -38,36 +38,32 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($users as $user)
+                                @foreach ($loans as $loan)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $user->id }}
+                                            {{ $loan->id }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $user->name }}
+                                            {{ $loan->name }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $user->email }}
+                                            {{ $loan->email }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $user->email_verified_at }}
+                                            {{ $loan->email_verified_at }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            @foreach ($user->roles as $role)
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    {{ $role->title }}
-                                                </span>
-                                            @endforeach
+                                            {{ $loan->email_verified_at }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('users.show', $user->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                                            <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
-                                            <form class="inline-block" action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                            <a href="{{ route('loans.show', $loan->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
+                                            <a href="{{ route('loans.edit', $loan->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                            <form class="inline-block" action="{{ route('loans.destroy', $loan->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">

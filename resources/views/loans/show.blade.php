@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Show User
+            Show Loan
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('users.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+                <a href="{{ route('loans.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -20,7 +20,7 @@
                                         ID
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $user->id }}
+                                        {{ $loan->id }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
@@ -28,7 +28,7 @@
                                         Name
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $user->name }}
+                                        {{ $loan->name }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
@@ -36,7 +36,7 @@
                                         Email
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $user->email }}
+                                        {{ $loan->email }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
@@ -44,7 +44,7 @@
                                         Email Verified At
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $user->email_verified_at }}
+                                        {{ $loan->email_verified_at }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="block mt-8">
-                <a href="{{ route('users.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+                <a href="{{ route('loans.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
             </div>
         </div>
     </div>
