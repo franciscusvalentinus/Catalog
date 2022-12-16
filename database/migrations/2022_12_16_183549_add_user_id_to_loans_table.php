@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('loans', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->index()->after('id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('loans')->onDelete('cascade');
         });
     }
 
