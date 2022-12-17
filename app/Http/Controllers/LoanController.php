@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateLoanRequest;
 use App\Models\Book;
 use App\Models\Loan;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +32,10 @@ class LoanController extends Controller
         $users = User::all();
         $books = Book::all();
 
-        return view('loans.create', compact('users', 'books'));
+        $loan_date = Carbon::now()->format('Y-m-d');
+        $return_date = Carbon::now()->addDays(7);
+
+        return view('loans.create', compact('users', 'books', 'loan_date', 'return_date'));
     }
 
     public function store(StoreLoanRequest $request)
