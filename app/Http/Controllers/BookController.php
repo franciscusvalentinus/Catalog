@@ -13,7 +13,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $books = Book::all();
 
@@ -22,7 +22,7 @@ class BookController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('books.create');
     }
@@ -41,7 +41,7 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('books.edit', compact('book'));
     }
@@ -55,7 +55,7 @@ class BookController extends Controller
 
     public function destroy(Book $book)
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $book->delete();
 

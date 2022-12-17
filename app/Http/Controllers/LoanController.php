@@ -15,7 +15,7 @@ class LoanController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $loans = Loan::all();
         $users = User::all();
@@ -26,7 +26,7 @@ class LoanController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $users = User::all();
         $books = Book::all();
@@ -48,7 +48,7 @@ class LoanController extends Controller
 
     public function edit(Loan $loan)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $users = User::pluck('email', 'id');
         $books = Book::pluck('title', 'id');
@@ -69,7 +69,7 @@ class LoanController extends Controller
 
     public function destroy(Loan $loan)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $loan->delete();
 
