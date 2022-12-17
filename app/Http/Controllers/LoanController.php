@@ -43,9 +43,7 @@ class LoanController extends Controller
 
     public function show(Loan $loan)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('loans.show', compact('loan'));
+        //
     }
 
     public function edit(Loan $loan)

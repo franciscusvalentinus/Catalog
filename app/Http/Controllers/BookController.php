@@ -36,9 +36,7 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('books.show', compact('book'));
+        //
     }
 
     public function edit(Book $book)
