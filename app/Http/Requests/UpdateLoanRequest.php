@@ -34,6 +34,12 @@ class UpdateLoanRequest extends FormRequest
             'status' => [
                 'required', 'integer',
             ],
+            'book_id' => [
+                'required', 'integer',
+            ],
+            'user_id' => [
+                'required', 'integer',
+            ],
         ];
     }
 }
