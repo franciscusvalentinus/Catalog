@@ -58,7 +58,7 @@
                                         @foreach ($users as $user)
                                             @if ($loan->user_id == $user->id)
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->name }}
+                                                    {{ $user->email }}
                                                 </td>
                                             @endif
                                         @endforeach
@@ -72,7 +72,13 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $loan->status }}
+                                            @if($loan->status == 0)
+                                                Peminjaman Selesai
+                                            @endif
+
+                                            @if($loan->status == 1)
+                                                Peminjaman Aktif
+                                            @endif
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
