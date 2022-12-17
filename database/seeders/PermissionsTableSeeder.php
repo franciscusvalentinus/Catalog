@@ -22,7 +22,7 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 2,
-                'title' => 'task_access',
+                'title' => 'admin_access',
             ],
         ];
 
