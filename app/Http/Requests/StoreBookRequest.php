@@ -14,7 +14,7 @@ class StoreBookRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::allows('task_access');
+        return Gate::allows('user_access');
     }
 
     /**
