@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('book_page');
             $table->string('publisher');
             $table->string('isbn');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
