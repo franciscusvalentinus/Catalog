@@ -23,7 +23,7 @@ class PermissionRoleTableSeeder extends Seeder
         });
         Role::findOrFail(1)->permissions()->sync($admin_permissions);
 
-        $user_permissions = $admin_permissions->filter(function ($permission) {
+        $user_permissions = $permissions->filter(function ($permission) {
             return $permission->title != 'admin_access';
         });
         Role::findOrFail(2)->permissions()->sync($user_permissions);
