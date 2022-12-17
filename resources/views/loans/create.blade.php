@@ -55,7 +55,7 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <input type="hidden" name="status" id="status" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="Dipinjam" />
+                                   value=1 />
                             @error('status')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
