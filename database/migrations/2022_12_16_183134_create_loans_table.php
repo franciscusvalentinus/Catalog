@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('loan_date');
             $table->date('return_date');
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }
