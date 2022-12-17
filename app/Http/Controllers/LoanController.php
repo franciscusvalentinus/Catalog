@@ -18,8 +18,10 @@ class LoanController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $loans = Loan::all();
+        $users = User::all();
+        $books = Book::all();
 
-        return view('loans.index', compact('loans'));
+        return view('loans.index', compact('loans', 'users', 'books'));
     }
 
     public function create()
