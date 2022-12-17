@@ -65,8 +65,6 @@ class LoanController extends Controller
     public function update(UpdateLoanRequest $request, Loan $loan)
     {
         $loan->update($request->validated());
-        $loan->users()->sync($request->input('users', []));
-        $loan->books()->sync($request->input('books', []));
 
         return redirect()->route('loans.index');
     }
