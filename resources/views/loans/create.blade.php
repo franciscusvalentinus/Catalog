@@ -12,40 +12,52 @@
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
-                            <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('name', '') }}" />
-                            @error('name')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
-                            <input type="email" name="email" id="email" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('email', '') }}" />
-                            @error('email')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="password" class="block font-medium text-sm text-gray-700">Password</label>
-                            <input type="password" name="password" id="password" class="form-input rounded-md shadow-sm mt-1 block w-full" />
-                            @error('password')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="roles" class="block font-medium text-sm text-gray-700">Roles</label>
-                            <select name="roles[]" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
-                                @foreach($roles as $id => $role)
-                                    <option value="{{ $id }}"{{ in_array($id, old('roles', [])) ? ' selected' : '' }}>{{ $role }}</option>
+                            <label for="book_id" class="block font-medium text-sm text-gray-700">Book</label>
+                            <select name="book_id[]" id="book_id" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
+                                @foreach($books as $id => $book)
+                                    <option value="{{ $id }}"{{ in_array($id, old('books', [])) ? ' selected' : '' }}>{{ $book }}</option>
                                 @endforeach
                             </select>
-                            @error('roles')
+                            @error('book_id')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="user_id" class="block font-medium text-sm text-gray-700">User</label>
+                            <select name="user_id[]" id="user_id" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
+                                @foreach($users as $id => $user)
+                                    <option value="{{ $id }}"{{ in_array($id, old('users', [])) ? ' selected' : '' }}>{{ $user }}</option>
+                                @endforeach
+                            </select>
+                            @error('user_id')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="loan_date" class="block font-medium text-sm text-gray-700">Loan Date</label>
+                            <input type="date" name="loan_date" id="loan_date" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('loan_date', '') }}" />
+                            @error('loan_date')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="return_date" class="block font-medium text-sm text-gray-700">Return Date</label>
+                            <input type="date" name="return_date" id="return_date" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('return_date', '') }}" />
+                            @error('return_date')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <input type="hidden" name="status" id="status" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="Dipinjam" />
+                            @error('status')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
