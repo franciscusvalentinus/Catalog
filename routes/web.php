@@ -23,6 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('books', \App\Http\Controllers\BookController::class);
-
+    Route::resource('bookusers', \App\Http\Controllers\BookUserController::class);
     Route::resource('loans', \App\Http\Controllers\LoanController::class);
 });
