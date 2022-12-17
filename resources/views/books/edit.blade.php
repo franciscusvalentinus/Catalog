@@ -67,9 +67,8 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="status" class="block font-medium text-sm text-gray-700">Status</label>
-                            <input type="text" name="status" id="status" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('isbn', $book->status) }}" />
+                            <input type="hidden" name="status" id="status" type="hidden" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('status', $book->status) }}" />
                             @error('status')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
