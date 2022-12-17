@@ -13,7 +13,7 @@
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="book_id" class="block font-medium text-sm text-gray-700">Book</label>
-                            <select name="book_id[]" id="book_id" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
+                            <select name="book_id" id="book_id" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
                                 @foreach($books as $book)
                                     <option value="{{ $book->id }}">{{$book->title . ' (' . $book->publication_year .')'}}</option>
                                 @endforeach
@@ -25,7 +25,7 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="user_id" class="block font-medium text-sm text-gray-700">User</label>
-                            <select name="user_id[]" id="user_id" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
+                            <select name="user_id" id="user_id" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}">{{$user->email . ' (' . $user->name .')'}}</option>
                                 @endforeach
