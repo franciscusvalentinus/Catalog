@@ -38,7 +38,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="loan_date" class="block font-medium text-sm text-gray-700">Loan Date</label>
                             <input type="date" name="loan_date" id="loan_date" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('loan_date', '') }}" />
+                                   value="{{ $loan_date }}" readonly/>
                             @error('loan_date')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -47,7 +47,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="return_date" class="block font-medium text-sm text-gray-700">Return Date</label>
                             <input type="date" name="return_date" id="return_date" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('return_date', '') }}" />
+                                   value="{{ $return_date }}" readonly/>
                             @error('return_date')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
