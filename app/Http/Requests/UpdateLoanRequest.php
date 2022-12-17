@@ -32,7 +32,7 @@ class UpdateLoanRequest extends FormRequest
                 'required', 'date',
             ],
             'status' => [
-                'required', 'string',
+                'required', 'integer',
             ],
         ];
     }

@@ -32,7 +32,7 @@ class StoreLoanRequest extends FormRequest
                 'required', 'date',
             ],
             'status' => [
-                'required', 'string',
+                'required', 'integer',
             ],
             'book_id' => [
                 'required', 'integer',

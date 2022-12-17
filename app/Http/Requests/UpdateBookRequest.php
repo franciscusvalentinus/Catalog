@@ -43,6 +43,9 @@ class UpdateBookRequest extends FormRequest
             'isbn' => [
                 'required', 'string',
             ],
+            'status' => [
+                'required', 'integer',
+            ],
         ];
     }
 }
