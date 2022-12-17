@@ -76,7 +76,6 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('loans.show', $loan->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
                                             <a href="{{ route('loans.edit', $loan->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
                                             <form class="inline-block" action="{{ route('loans.destroy', $loan->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
