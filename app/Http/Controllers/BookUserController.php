@@ -20,7 +20,7 @@ class BookUserController extends Controller
 
         $books = Book::all()->where('status', '==', '0');
 
-        return view('books.index', compact('books'));
+        return view('bookusers.index', compact('books'));
     }
 
     /**
