@@ -16,8 +16,13 @@ class PermissionRoleTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin_permissions = Permission::all();
-        Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
+        $permissions = Permission::all();
+
+        $admin_permissions = $permissions->filter(function ($permission) {
+            return $permission->title != 'user_access';
+        });
+        Role::findOrFail(1)->permissions()->sync($admin_permissions);
+
         $user_permissions = $admin_permissions->filter(function ($permission) {
             return $permission->title != 'admin_access';
         });
