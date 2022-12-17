@@ -16,6 +16,7 @@ class Book extends Model
         'book_page',
         'publisher',
         'isbn',
+        'status',
     ];
 
     public function loans()
