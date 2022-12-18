@@ -40,8 +40,14 @@ class LoanController extends Controller
 
     public function store(StoreLoanRequest $request)
     {
+        $book_id = $request->input('book_id');
+        $book = Book::all()->where('id', '=', $book_id);
+        foreach ($book as $b){
+            $b->status = 1;
+        }
+        $b->update();
         $loan = Loan::create($request->validated());
-
+        
         return redirect()->route('loans.index');
     }
 
