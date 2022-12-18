@@ -61,7 +61,7 @@ class LoanController extends Controller
         //
     }
 
-    public function update(UpdateLoanRequest $request, Loan $loan)
+    public function update(Request $request, Loan $loan)
     {
         //
     }

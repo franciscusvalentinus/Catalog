@@ -44,7 +44,7 @@ class BookController extends Controller
         //
     }
 
-    public function update(UpdateBookRequest $request, Book $book)
+    public function update(Request $request, Book $book)
     {
         //
     }
