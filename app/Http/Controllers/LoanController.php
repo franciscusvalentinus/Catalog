@@ -47,7 +47,7 @@ class LoanController extends Controller
         }
         $b->update();
         $loan = Loan::create($request->validated());
-
+        
         return redirect()->route('loans.index');
     }
 
