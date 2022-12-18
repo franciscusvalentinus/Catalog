@@ -74,4 +74,12 @@ class LoanController extends Controller
 
         return redirect()->route('loans.index');
     }
+
+    public function markasdone(Loan $loan)
+    {
+        $loan->status = 0;
+        $loan->save();
+
+        return redirect()->route('loans.index');
+    }
 }

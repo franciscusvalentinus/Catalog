@@ -25,4 +25,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('books', \App\Http\Controllers\BookController::class);
     Route::resource('bookusers', \App\Http\Controllers\BookUserController::class);
     Route::resource('loans', \App\Http\Controllers\LoanController::class);
+    Route::patch('loan/done/{loan}', [\App\Http\Controllers\LoanController::class, 'markasdone'])->name('loan.markasdone');
 });
