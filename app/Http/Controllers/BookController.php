@@ -41,16 +41,12 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
-        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('books.edit', compact('book'));
+        //
     }
 
     public function update(UpdateBookRequest $request, Book $book)
     {
-        $book->update($request->validated());
-
-        return redirect()->route('books.index');
+        //
     }
 
     public function destroy(Book $book)

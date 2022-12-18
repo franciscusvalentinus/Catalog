@@ -58,21 +58,12 @@ class LoanController extends Controller
 
     public function edit(Loan $loan)
     {
-        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $users = User::pluck('email', 'id');
-        $books = Book::pluck('title', 'id');
-
-        $loan->load('users', 'books');
-
-        return view('loans.edit', compact('loan', 'users', 'books'));
+        //
     }
 
     public function update(UpdateLoanRequest $request, Loan $loan)
     {
-        $loan->update($request->validated());
-
-        return redirect()->route('loans.index');
+        //
     }
 
     public function destroy(Loan $loan)
