@@ -77,6 +77,13 @@ class LoanController extends Controller
 
     public function markasdone(Loan $loan)
     {
+        $book_id = $loan->book_id;
+        $book = Book::all()->where('id', '=', $book_id);
+        foreach ($book as $b){
+            $b->status = 0;
+        }
+        $b->update();
+
         $loan->status = 0;
         $loan->save();
 
