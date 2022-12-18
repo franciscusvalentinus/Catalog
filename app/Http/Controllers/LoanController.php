@@ -30,7 +30,7 @@ class LoanController extends Controller
         abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $users = User::all();
-        $books = Book::all();
+        $books = Book::all()->where('status', '==', '0');
 
         $loan_date = Carbon::now()->format('Y-m-d');
         $return_date = Carbon::now()->addDays(7)->format('Y-m-d');
