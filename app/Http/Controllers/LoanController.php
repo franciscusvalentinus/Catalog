@@ -22,15 +22,6 @@ class LoanController extends Controller
         $users = User::all();
         $books = Book::all();
 
-        $date = "2022-02-22";
-
-        $newDate = Carbon::createFromFormat('Y-m-d', $date)
-            ->format('Y-m-d');
-
-
-
-        $datenow = Carbon::now()->timezone('Asia/Phnom_Penh')->format('Y-m-d');
-
         return view('loans.index', compact('loans', 'users', 'books'));
     }
 
