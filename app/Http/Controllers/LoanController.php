@@ -32,8 +32,8 @@ class LoanController extends Controller
         $users = User::all();
         $books = Book::all()->where('status', '==', '0');
 
-        $loan_date = Carbon::now()->format('Y-m-d');
-        $return_date = Carbon::now()->addDays(7)->format('Y-m-d');
+        $loan_date = Carbon::now()->timezone('Asia/Phnom_Penh')->format('Y-m-d');
+        $return_date = Carbon::now()->timezone('Asia/Phnom_Penh')->addDays(7)->format('Y-m-d');
 
         return view('loans.create', compact('users', 'books', 'loan_date', 'return_date'));
     }
