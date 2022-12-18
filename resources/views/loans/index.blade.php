@@ -82,11 +82,13 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <form action={{ route('loan.markasdone', $loan->id) }} method="POST">
-                                                @method('PATCH')
-                                                @csrf
-                                                <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Approve</button>
-                                            </form>
+                                            @if($loan->status == 1)
+                                                <form action={{ route('loan.markasdone', $loan->id) }} method="POST">
+                                                    @method('PATCH')
+                                                    @csrf
+                                                    <button type="submit" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Mark as done</button>
+                                                </form>
+                                            @endif
                                             <form class="inline-block" action="{{ route('loans.destroy', $loan->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
