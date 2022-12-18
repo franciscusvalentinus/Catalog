@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             BooksTableSeeder::class,
+            LoansTableSeeder::class,
         ]);
     }
 }
